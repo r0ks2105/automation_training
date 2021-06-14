@@ -1,0 +1,6 @@
+.idea/*
+*.class
+.allure/*
+allure-results/*
+target/*
+debug.log
