@@ -1,28 +1,26 @@
 package base;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-import java.util.concurrent.TimeUnit;
 
 public abstract class BaseTest {
-    public ThreadLocal<WebDriver> driverThreadSafe = new ThreadLocal<>();
     private static String baseURL = "http://automationpractice.com/";
+    private WebDriver driver;
 @BeforeMethod
  public void setupDriver(){
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
-        driverThreadSafe.set(driver);
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+        this.driver = WebDriverConfig.getChromeDriver();
         driver.get(baseURL);
     }
+
  @AfterMethod
 public void closeBrowser(){
-    driverThreadSafe.get().quit();
+    this.driver.quit();
+}
+
+public WebDriver getDriver() {
+    return this.driver;
 }
 
 
