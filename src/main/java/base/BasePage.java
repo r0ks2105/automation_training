@@ -11,4 +11,8 @@ public abstract class BasePage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
+    public String getPageTitle(){
+        String pageTitle = driver.getTitle();
+        return pageTitle;
+    }
 }
