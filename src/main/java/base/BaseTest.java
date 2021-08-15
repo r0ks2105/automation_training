@@ -26,10 +26,10 @@ public abstract class BaseTest {
         driver.get(BASEURL);
     }
 
- @AfterMethod
+/* @AfterMethod
 public void closeBrowser(){
     this.driver.quit();
-}
+}*/
 
     public WebDriver getDriver() {
         return this.driver;

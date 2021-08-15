@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class AuthenticationPage extends BasePage {
-   // private WebDriver driver;
     @FindBy(css = "#email")
     private WebElement emailInput;
     @FindBy(css = "#passwd")
@@ -21,6 +20,8 @@ public class AuthenticationPage extends BasePage {
     private WebElement createAccountInput;
     @FindBy (css = "#SubmitCreate")
     private WebElement createAccountButton;
+    @FindBy (css = "#create_account_error>ol>li")
+    private WebElement createAccountError;
 
     public AuthenticationPage (WebDriver driver){
              super(driver);
@@ -53,5 +54,11 @@ public class AuthenticationPage extends BasePage {
         System.out.println(newEmail);
         createAccountButton.click();
                return new PersonalInfo(driver);
+    }
+
+    @Step("Get registration error")
+    public String getRegistrationError(){
+        String error = createAccountError.getText();
+        return error;
     }
 }

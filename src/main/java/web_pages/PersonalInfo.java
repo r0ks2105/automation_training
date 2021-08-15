@@ -38,6 +38,8 @@ public class PersonalInfo extends BasePage {
     private WebElement submitButton;
     @FindBy(id = "account-creation_form")
     public WebElement registrationForm;
+    @FindBy(css = "#center_column > div > ol > li:nth-child(1)")
+    private WebElement errorNotification;
     private String optionLocator = "//option[text()=\"OPT\"]";
 
     public MyAccountPage registerAccount(String name, String surname, String password,
@@ -103,6 +105,12 @@ public class PersonalInfo extends BasePage {
     protected PersonalInfo selectState(String optionName) throws InterruptedException {
         new WebDropDown(driver).selectOptionXpath(optionLocator, optionName, stateDropDown);
         return this;
+    }
+
+    @Step("Get error notification")
+    public String getRegistrationError(){
+        String error = errorNotification.getText();
+        return error;
     }
 
 }
