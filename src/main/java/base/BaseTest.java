@@ -16,6 +16,8 @@ public abstract class BaseTest {
     private WebDriver driver;
     protected static String newEmail = "aut0test"+(int)(Math.random()*100+1000)+"@yopmail.com";
     private int emailId = Integer.parseInt(ReadProperties.getInstance().getProperty("emailId"));
+    protected String email = ReadProperties.getInstance().getProperty("mainLogin");
+    protected String password = ReadProperties.getInstance().getProperty("mainPassword");
 
     protected BaseTest() throws Exception {
     }

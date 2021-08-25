@@ -42,6 +42,8 @@ public class PersonalInfo extends BasePage {
     private WebElement errorNotification;
     private String optionLocator = "//option[text()=\"OPT\"]";
 
+
+    @Step("Click submit button")
     public MyAccountPage registerAccount(String name, String surname, String password,
                                          String streetAddress, String city,
                                          String state, String zip,

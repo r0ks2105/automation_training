@@ -85,6 +85,10 @@ public class Cases extends BaseTest {
     }
 
     @Test
+    @TmsLink("threats")
+    @Issue("repository")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Registration negative")
     public void searchItems() throws InterruptedException {
         SearchResults searchResults = new MainPage(driverThreadSafe.get()).
                 search("Dress");
