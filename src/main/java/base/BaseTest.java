@@ -1,5 +1,6 @@
 package base;
 
+import listeners.TestListener;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -8,9 +9,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import test_data.ReadProperties;
 
-
+@Listeners({TestListener.class})
 public abstract class BaseTest {
     private static final String BASEURL = "http://automationpractice.com/";
     private WebDriver driver;
@@ -28,10 +30,10 @@ public abstract class BaseTest {
         driver.get(BASEURL);
     }
 
-/* @AfterMethod
+ @AfterMethod
 public void closeBrowser(){
     this.driver.quit();
-}*/
+}
 
     public WebDriver getDriver() {
         return this.driver;

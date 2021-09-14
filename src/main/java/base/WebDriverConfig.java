@@ -11,15 +11,13 @@ public abstract class WebDriverConfig {
 
     public static ThreadLocal<WebDriver> driverThreadSafe = new ThreadLocal<>();
 
-    private static WebDriver driver;
-
     public static WebDriver getChromeDriver(){
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driverThreadSafe.set(driver);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
-        return driver;
+        return driverThreadSafe.get();
     }
 
     public static WebDriver getFirefoxDriver(){

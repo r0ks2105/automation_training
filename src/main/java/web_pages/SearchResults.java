@@ -14,14 +14,13 @@ public class SearchResults extends BasePage {
 
     @FindBy(id = "search_query_top")
     public WebElement searchFrame;
-    @FindBy(xpath = "//*[@id=\"center_column\"]/ul/li[1]/div/div[2]/h5/a")
-    public WebElement firsItemInGrid;
+
 
     @Step
-    public ProductDetails openFirstSearchResult() throws InterruptedException {
+    public ProductDetails openFirstSearchResult(){
 
         new WebGrids(driver)
-                .openElementDetails(firsItemInGrid);
+                .openElementDetails();
         return new ProductDetails(driver);
     }
 }

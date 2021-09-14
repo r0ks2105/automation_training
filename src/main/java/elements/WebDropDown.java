@@ -1,16 +1,17 @@
 package elements;
 
+import base.BaseElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class WebDropDown {
+public class WebDropDown extends BaseElement {
     private WebDriver driver;
 
     public WebDropDown(WebDriver driver) {
-       this.driver = driver;
-    }
+        super(driver);
+           }
 
     public void selectOptionXpath(String locator, String optionName, WebElement dropDownMenu) throws InterruptedException {
             dropDownMenu.click();
